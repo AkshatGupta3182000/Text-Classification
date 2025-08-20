@@ -1,0 +1,37 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environment
+venv/
+.env/
+*.env
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# IDE / Editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+
+# Data files (optional – ignore if too large, but keep small test data)
+data/
+*.csv
+*.xlsx
+*.json
+
+# Build / dist files
+build/
+dist/
+*.egg-info/
