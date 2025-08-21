@@ -6,3 +6,6 @@ joblib
 xgboost
 python-multipart
 nltk
+spacy
+pydantic
+io
