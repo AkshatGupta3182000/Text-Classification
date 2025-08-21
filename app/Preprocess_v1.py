@@ -3,7 +3,7 @@
 import pandas as pd
 import warnings
 import nltk
-import spacy 
+
 import string
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -14,7 +14,7 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 warnings.filterwarnings("ignore")
 stop_words = set(stopwords.words('english'))
-nlp = spacy.load("en_core_web_sm")
+
 
 def preprocess_text(text):
     """
