@@ -1,3 +1,7 @@
 fastapi
 uvicorn
-nltk
+pandas
+openpyxl
+joblib
+xgboost
+python-multipart
