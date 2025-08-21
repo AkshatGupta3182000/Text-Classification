@@ -12,11 +12,20 @@ from fastapi import UploadFile, File
 ## Load the model and vectorizer
 artifacts_path = os.path.join(os.path.dirname(__file__), "artifacts")
 
-vectorizer = joblib.load(os.path.join(artifacts_path,"vectorizer.joblib"))
-model = joblib.load(os.path.join(artifacts_path,"xgb_model.joblib"))
-label_encoder = joblib.load(os.path.join(artifacts_path,"label_encoder.joblib"))
+try:
+    vectorizer = joblib.load(os.path.join(artifacts_path,"vectorizer.joblib"))
+    model = joblib.load(os.path.join(artifacts_path,"xgb_model.joblib"))
+    label_encoder = joblib.load(os.path.join(artifacts_path,"label_encoder.joblib"))
+except FileNotFoundError as e:
+    raise RuntimeError(f"Error loading model artifacts: {e}. Ensure the model files are present in the 'artifacts' directory.")
+
 ## Initialize FastAPI app
 app = FastAPI(title = "Text Classification API")
+
+# ✅ Health check (for Render)
+@app.get("/")
+def root():
+    return {"status": "ok", "message": "FastAPI running on Render"}
 
 ## Define input schema
 class TextInput(BaseModel):
@@ -64,5 +73,5 @@ async def predict_file(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.environ.get("PORT", 8000))  # Render gives PORT env variable
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port)
