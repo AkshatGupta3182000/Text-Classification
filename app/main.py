@@ -4,15 +4,17 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import io
-from .Preprocess_v1 import preprocess_text
+import os
+from Preprocess_v1 import preprocess_text
 from fastapi.responses import StreamingResponse
 from fastapi import UploadFile, File
 
 ## Load the model and vectorizer
-vectorizer = joblib.load(r"C:\Users\ajayg\Downloads\Text_Classification\Artifacts\vectorizer.joblib")
-model = joblib.load(r"C:\Users\ajayg\Downloads\Text_Classification\Artifacts\xgb_model.joblib")
-label_encoder = joblib.load(r"C:\Users\ajayg\Downloads\Text_Classification\Artifacts\label_encoder.joblib")
+artifacts_path = os.path.join(os.path.dirname(__file__), "artifacts")
 
+vectorizer = joblib.load(os.path.join(artifacts_path,"vectorizer.joblib"))
+model = joblib.load(os.path.join(artifacts_path,"xgb_model.joblib"))
+label_encoder = joblib.load(os.path.join(artifacts_path,"label_encoder.joblib"))
 ## Initialize FastAPI app
 app = FastAPI(title = "Text Classification API")
 
@@ -62,4 +64,4 @@ async def predict_file(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
