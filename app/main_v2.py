@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import io
-from Preprocess_v1 import preprocess_text
+from .Preprocess_v1 import preprocess_text
 from fastapi.responses import StreamingResponse
 from fastapi import UploadFile, File
 
