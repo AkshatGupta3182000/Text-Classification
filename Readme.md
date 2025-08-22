@@ -41,4 +41,4 @@ ReDoc:  http://127.0.0.1:8000/redoc
 -Stored in: models/model.joblib
 
 -- Built by [Akshat Gupta]
--- For demo & learning purposes 
+-- For demo & learning purposes  
