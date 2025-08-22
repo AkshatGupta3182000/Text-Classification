@@ -1,6 +1,6 @@
 #  Text Classification API 
 
-This project is a **FastAPI-based machine learning application** that classifies text into categories using a trained **XGBoost model**.  
+This project is a **FastAPI-based machine learning application** that classifies text into categories using a trained **XGBoost model**.   
 It supports:
 -  Classifying a **single text input**
 -  Uploading an **Excel file** (`.xlsx`) with text column
