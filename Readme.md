@@ -1,6 +1,6 @@
-#  Text Classification API
+#  Text Classification API 
 
-This project is a **FastAPI-based machine learning application** that classifies text into categories using a trained **XGBoost model**.  
+This project is a **FastAPI-based machine learning application** that classifies text into categories using a trained **XGBoost model**.   
 It supports:
 -  Classifying a **single text input**
 -  Uploading an **Excel file** (`.xlsx`) with text column
@@ -41,4 +41,4 @@ ReDoc:  http://127.0.0.1:8000/redoc
 -Stored in: models/model.joblib
 
 -- Built by [Akshat Gupta]
--- For demo & learning purposes 
+-- For demo & learning purposes  
