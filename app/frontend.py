@@ -7,7 +7,7 @@ uploaded_file = st.file_uploader("Choose a CSV or Excel file", type = ["csv","xl
 if uploaded_file is not None:
     if st.button("Get Predictions"):
         files = {"file":(uploaded_file.name,uploaded_file,uploaded_file.type)}
-        url = "https://text-classification-7whk.onrender.com/predict_file"
+        url = "https://textclassification-v2.onrender.com/predict_file"
         with st.spinner("Sending file for the Predictions..."):
             response = requests.post(url,files=files)
 
